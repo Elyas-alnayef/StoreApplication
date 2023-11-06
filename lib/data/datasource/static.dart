@@ -16,9 +16,4 @@ List<OnBoardingModel> onboardinglist = [
       body:
           'Best Traker Has Been Used For\nTrack Your Order.You will Know Where\nIs Your Products At The Moment',
       image: IageAssets.onboardingimagethree),
-  OnBoardingModel(
-      title: 'Fast Delivery',
-      body:
-          'Reliable and Fast Delivery.We\nDeliver Your Product The Fastest\nWay possible',
-      image: IageAssets.onboardingimagefour),
 ];

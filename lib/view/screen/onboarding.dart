@@ -1,44 +1,36 @@
 import 'package:flutter/material.dart';
-
-import '../../core/constant/color.dart';
-import '../../data/datasource/static.dart';
+import 'package:get/get.dart';
+import 'package:sotreapplication/core/constant/color.dart';
+import '../../controller/onboardingcontroller.dart';
+import '../widget/onboarding/custombutton.dart';
+import '../widget/onboarding/dotcontroller.dart';
+import '../widget/onboarding/slider.dart';
 
 class OnBoarding extends StatelessWidget {
   const OnBoarding({super.key});
   @override
   Widget build(BuildContext context) {
+    Get.put(implemntonboardingcontroller());
     return Scaffold(
+      backgroundColor: AppColors.backgroundcolor,
       body: SafeArea(
-        child: PageView.builder(
-          itemCount: onboardinglist.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              Expanded(flex: 4, child: onboardingslider()),
+              Expanded(
+                  child: Column(
                 children: [
-                  Text(
-                    onboardinglist[index].title,
-                    style: const TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.bold),
+                  onboardingdotcontroller(),
+                  const Spacer(
+                    flex: 2,
                   ),
-                  const SizedBox(
-                    height: 64,
-                  ),
-                  Image.asset(onboardinglist[index].image,
-                      height: 300, width: 200),
-                  const SizedBox(
-                    height: 48,
-                  ),
-                  Text(onboardinglist[index].body,
-                      style: const TextStyle(
-                        height: 2,
-                        color: AppColors.subtitlecolor,
-                      ),
-                      textAlign: TextAlign.center),
+                  onboardingbutton(),
                 ],
-              ),
-            );
-          },
+              ))
+            ],
+          ),
         ),
       ),
     );
