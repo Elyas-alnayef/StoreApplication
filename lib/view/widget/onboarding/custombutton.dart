@@ -6,7 +6,7 @@ import '../../../controller/onboardingcontroller.dart';
 Widget onboardingbutton() => GetBuilder<implemntonboardingcontroller>(
       builder: (controller) => Container(
         height: 56,
-        margin: EdgeInsets.symmetric(horizontal: 8),
+        margin: const EdgeInsets.symmetric(horizontal: 8),
         width: double.infinity,
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(

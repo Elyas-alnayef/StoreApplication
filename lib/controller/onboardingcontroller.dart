@@ -20,7 +20,7 @@ class implemntonboardingcontroller extends onboardingcontroller {
       }
     }
     pageController.animateToPage(currentpage,
-        duration: Duration(seconds: 1), curve: Curves.easeInOut);
+        duration: const Duration(seconds: 1), curve: Curves.easeInOut);
   }
 
   @override
