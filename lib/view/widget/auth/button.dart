@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../../core/constant/color.dart';
 
-Widget langbutton({
-  required String text,
+Widget login({
   required Function fun,
+  required String name,
 }) =>
     Container(
       height: 48,
-      margin: const EdgeInsets.symmetric(horizontal: 32),
       width: double.infinity,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
@@ -19,7 +18,7 @@ Widget langbutton({
             fun();
           },
           child: Text(
-            text,
+            name,
             style: const TextStyle(color: Colors.white),
           )),
     );

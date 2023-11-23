@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sotreapplication/view/screen/auth/language.dart';
-
 import 'core/localization/changelocal.dart';
 import 'core/localization/translation.dart';
 import 'core/services/services.dart';
 import 'routs.dart';
-import 'view/screen/onboarding.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -5,10 +5,12 @@ Widget loginTextField({
   required String hint,
   required String lable,
   required Icon suffixicon,
+  required TextEditingController controller,
 }) =>
     Container(
       height: 56,
       child: TextFormField(
+        controller: controller,
         decoration: InputDecoration(
             floatingLabelBehavior: FloatingLabelBehavior.always,
             hintText: hint,
