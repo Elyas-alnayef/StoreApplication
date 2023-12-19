@@ -31,15 +31,6 @@ class Restpassword extends StatelessWidget {
                 height: 24,
               ),
               loginTextField(
-                controller: controller.oldpasswordcontroller,
-                hint: "Enter old password",
-                lable: 'old',
-                suffixicon: const Icon(Icons.lock_outline),
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              loginTextField(
                 controller: controller.newpasswordcontroller,
                 hint: "Enter new password",
                 lable: 'New',
