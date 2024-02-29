@@ -4,6 +4,7 @@ import 'package:sotreapplication/core/constant/routs.dart';
 
 abstract class Signupcontroller extends GetxController {
   signup();
+  goTocheckemail();
   goTologin();
 }
 
@@ -12,6 +13,11 @@ class Signupcontrollerimp extends Signupcontroller {
   late TextEditingController emailcontroller;
   late TextEditingController phonecontroller;
   late TextEditingController passwordcontroller;
+
+  @override
+  goTocheckemail() {
+    Get.toNamed(Approuts.checkemail);
+  }
 
   @override
   goTologin() {

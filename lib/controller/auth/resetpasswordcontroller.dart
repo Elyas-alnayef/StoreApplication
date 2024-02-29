@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sotreapplication/core/constant/routs.dart';
 
 abstract class Resetpasswordcontroller extends GetxController {
   goTonext();
@@ -30,5 +31,7 @@ class Resetpasswordcontrollerimp extends Resetpasswordcontroller {
   reset() {}
 
   @override
-  goTonext() {}
+  goTonext() {
+    Get.toNamed(Approuts.successreset);
+  }
 }

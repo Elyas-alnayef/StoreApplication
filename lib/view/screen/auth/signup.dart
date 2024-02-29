@@ -73,7 +73,11 @@ class Signup extends StatelessWidget {
               const SizedBox(
                 height: 24,
               ),
-              login(fun: () {}, name: 'Sign Up'),
+              login(
+                  fun: () {
+                    controller.goTocheckemail();
+                  },
+                  name: 'Sign Up'),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

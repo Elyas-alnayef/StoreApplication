@@ -48,7 +48,11 @@ class Restpassword extends StatelessWidget {
               const SizedBox(
                 height: 24,
               ),
-              login(fun: () {}, name: 'Confirm'),
+              login(
+                  fun: () {
+                    controller.goTonext();
+                  },
+                  name: 'Confirm'),
             ],
           ),
         ),
