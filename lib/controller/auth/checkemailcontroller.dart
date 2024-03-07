@@ -9,6 +9,7 @@ abstract class Checkemailcontroller extends GetxController {
 
 class Checkemailcontrollerimp extends Checkemailcontroller {
   late TextEditingController codecontroller;
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   @override
   void onInit() {
@@ -24,7 +25,12 @@ class Checkemailcontrollerimp extends Checkemailcontroller {
 
   @override
   gotoSuccessSignUp() {
-    Get.toNamed(Approuts.successsignup);
+    var formstate = formkey.currentState;
+    if (formstate!.validate()) {
+      Get.toNamed(Approuts.successsignup);
+      //when the page dispose this line of code delete the cotroller from the memory
+      Get.delete<Checkemailcontrollerimp>();
+    } else {}
   }
 
   @override

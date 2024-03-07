@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../../controller/auth/forgetpasswordcontroller.dart';
 import '../../../controller/auth/verifiycontroller.dart';
 import '../../../core/constant/color.dart';
+import '../../../core/functions/validinput.dart';
 import '../../widget/auth/button.dart';
 import '../../widget/auth/subtitle.dart';
 import '../../widget/auth/textformfield.dart';
@@ -22,56 +23,62 @@ class Verifiy extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 24,
-              ),
-              authsubtitle(
-                subtitle: "Enter your verification code",
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              loginTextField(
-                controller: controller.codecontroller,
-                hint: "",
-                lable: 'Code',
-                suffixicon: const Icon(Icons.verified_user_outlined),
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              login(
-                  fun: () {
-                    controller.gotorestpassword();
+          child: Form(
+            key: controller.formkey,
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 24,
+                ),
+                authsubtitle(
+                  subtitle: "Enter your verification code",
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                loginTextField(
+                  validator: (value) {
+                    return validInput(value!, 10, 6, 'number');
                   },
-                  name: 'Next'),
-              const SizedBox(
-                height: 8,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "didn't receive verification code ? ",
-                    textAlign: TextAlign.end,
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      controller.resendcode();
+                  controller: controller.codecontroller,
+                  hint: "",
+                  lable: 'Code',
+                  suffixicon: const Icon(Icons.verified_user_outlined),
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                login(
+                    fun: () {
+                      controller.gotorestpassword();
                     },
-                    child: const Text("Resend",
-                        textAlign: TextAlign.end,
-                        style: TextStyle(
-                            fontSize: 16, color: AppColors.primaryColor)),
-                  ),
-                ],
-              )
-            ],
+                    name: 'Next'),
+                const SizedBox(
+                  height: 8,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "didn't receive verification code ? ",
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        controller.resendcode();
+                      },
+                      child: const Text("Resend",
+                          textAlign: TextAlign.end,
+                          style: TextStyle(
+                              fontSize: 16, color: AppColors.primaryColor)),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

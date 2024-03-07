@@ -9,26 +9,31 @@ abstract class Resetpasswordcontroller extends GetxController {
 
 class Resetpasswordcontrollerimp extends Resetpasswordcontroller {
   late TextEditingController newpasswordcontroller;
-  late TextEditingController oldpasswordcontroller;
   late TextEditingController confirmpasswordcontroller;
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
   @override
   void onInit() {
     newpasswordcontroller = TextEditingController();
-    oldpasswordcontroller = TextEditingController();
     confirmpasswordcontroller = TextEditingController();
     super.onInit();
   }
 
   @override
   void dispose() {
-    oldpasswordcontroller.dispose();
     newpasswordcontroller.dispose();
     confirmpasswordcontroller.dispose();
     super.dispose();
   }
 
   @override
-  reset() {}
+  reset() {
+    var formstate = formkey.currentState;
+    if (formstate!.validate()) {
+      goTonext();
+      //when the page dispose this line of code delete the cotroller from the memory
+      Get.delete<Resetpasswordcontrollerimp>();
+    } else {}
+  }
 
   @override
   goTonext() {

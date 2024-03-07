@@ -13,6 +13,7 @@ class Signupcontrollerimp extends Signupcontroller {
   late TextEditingController emailcontroller;
   late TextEditingController phonecontroller;
   late TextEditingController passwordcontroller;
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   @override
   goTocheckemail() {
@@ -25,7 +26,15 @@ class Signupcontrollerimp extends Signupcontroller {
   }
 
   @override
-  signup() {}
+  signup() {
+    var formstate = formkey.currentState;
+    if (formstate!.validate()) {
+      goTocheckemail();
+      //when the page dispose this line of code delete the cotroller from the memory
+      Get.delete<Signupcontrollerimp>();
+    } else {}
+  }
+
   @override
   void onInit() {
     usernamecontroller = TextEditingController();

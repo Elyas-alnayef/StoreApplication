@@ -6,10 +6,16 @@ Widget loginTextField({
   required String lable,
   required Icon suffixicon,
   required TextEditingController controller,
+  required String? Function(String?) validator,
+  bool? isnumber = false,
 }) =>
     Container(
       height: 56,
       child: TextFormField(
+        keyboardType: isnumber!
+            ? TextInputType.numberWithOptions(decimal: true)
+            : TextInputType.text,
+        validator: validator,
         controller: controller,
         decoration: InputDecoration(
             floatingLabelBehavior: FloatingLabelBehavior.always,

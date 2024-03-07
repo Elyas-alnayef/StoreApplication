@@ -12,14 +12,22 @@ abstract class Logincontroller extends GetxController {
 class Logincontrollerimp extends Logincontroller {
   late TextEditingController emailcontroller;
   late TextEditingController passwordcontroller;
+  GlobalKey<FormState> formkey = new GlobalKey<FormState>();
 
   @override
   goToSignup() {
     Get.offNamed(Approuts.signup);
+    Get.delete<Logincontrollerimp>();
   }
 
   @override
-  login() {}
+  login() {
+    var formdata = formkey.currentState;
+    if (formdata!.validate()) {
+      Get.delete<Logincontrollerimp>();
+    } else {}
+  }
+
   @override
   void onInit() {
     emailcontroller = TextEditingController();
@@ -37,5 +45,7 @@ class Logincontrollerimp extends Logincontroller {
   @override
   goToforgetpassword() {
     Get.toNamed(Approuts.forgetpassword);
+    //when the page dispose this line of code delete the cotroller from the memory
+    Get.delete<Logincontrollerimp>();
   }
 }
